@@ -1,6 +1,6 @@
 package scripts.test
 
-import io.ot.builder.Sql
+import io.ot.builder.SqlSelect
 import io.ot.{Script, ScriptObj, builder}
 
 import scala.collection.mutable.Buffer
@@ -10,7 +10,7 @@ object ScriptJdbc extends ScriptObj {
 }
 
 class ScriptJdbc extends Script {
-  val req = Sql("dvdrental", Map(query -> "", timeout -> 600))
+  val req = SqlSelect("dvdrental", Map(query -> "", timeout -> 600))
     .make()
     .copy(name = "SELECT * FROM public.film where film_id = $id")
 
