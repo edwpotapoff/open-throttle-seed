@@ -25,8 +25,8 @@ class TestScript extends Script {
 
 
   val assertBooks = () =>
-    log.info(s"the titles is: ${"titles".tco}")
-    log.info(s"the titl is: ${"titl".tco}")
+    log.info(s"the titles is: ${"titles".tco[Any]}")
+    log.info(s"the titl is: ${"titl".tco[Any]}")
 
     if (jsonpath("$..title", saveAs = "titls") != null) // путь optional false
       val titls = "titls".tc.list
