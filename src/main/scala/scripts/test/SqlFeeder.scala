@@ -20,9 +20,9 @@ class SqlFeeder extends Script {
   }
 
   def check0() = {
-    val film_id = "film_id".tc
-    val title = "title".tc
-    val description = "description".tc
+    val film_id = "film_id".any
+    val title = "title".string
+    val description = "description".string
 
     log.info(s"film_id $film_id, title $title, description $description, hitId $hitId")
     empty

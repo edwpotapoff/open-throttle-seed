@@ -22,8 +22,8 @@ class SubSubaction extends Script {
 
 
   def chek() = {
-    val bankId = "BankId".tc
-    val bankName = "BankName".tc
+    val bankId = "BankId".any
+    val bankName = "BankName".string
     log.info(s"Bank: $bankId, $bankName")
     //assert(false, "test")
     empty

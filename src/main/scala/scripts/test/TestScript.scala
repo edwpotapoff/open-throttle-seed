@@ -29,11 +29,11 @@ class TestScript extends Script {
     log.info(s"the titl is: ${"titl".tco[Any]}")
 
     if (jsonpath("$..title", saveAs = "titls") != null) // путь optional false
-      val titls = "titls".tc.list
+      val titls = "titls".list
       titls.foreach(i => log.info(s"the title is: $i"))
 
     if (jsonpath("$..titl", true, saveAs = "titl") != null) // optional - не вызывать ошибку
-      val titls = "titl".tc.list
+      val titls = "titl".list
       titls.foreach(i => log.info(s"the titl is: $i"))
 
 
@@ -53,7 +53,7 @@ class TestScript extends Script {
     //    log.info(s"regex = $rez")
 
     subStr("\"", "ic")
-    val ic = tc("ic").array
+    val ic = "ic".array
     _assert(ic(0) == 1, "Первая кавычка должна быть сразу после {")
     _assert(ic.size == 10, "Всего кавычек 10")
     _assert(subStrCount("\"") == 10, "Всего кавычек 10")
@@ -73,7 +73,7 @@ class TestScript extends Script {
     responseTimeLT(700000 microseconds) //
 
     tc("user") = jsonValue
-    val t = "user.age".tc
+    val t = "user.age".any
     log.info(s"the user age is $t")
     asserts
   }

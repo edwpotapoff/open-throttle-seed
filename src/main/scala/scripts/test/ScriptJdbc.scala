@@ -28,13 +28,13 @@ class ScriptJdbc extends Script {
   var id = 0
 
   def assertStep() = {
-    val rs = tc("dvdrental").asInstanceOf[Buffer[Map[String, Any]]]
+    val rs = tc[Buffer[Map[String, Any]]]("dvdrental")
     val h = rs.head
     val t = rs.tail
     assert(t == Nil, "Набор должен содержать только одну запись")
     assert(rs.size == 1, "Набор должен содержать только одну запись")
     assert(h("film_id") == id, s"film_id должен равняться $id")
-    assert(tc("film_id") == id, s"film_id должен равняться $id")
+    assert(tc.any("film_id") == id, s"film_id должен равняться $id")
     empty
   }
 

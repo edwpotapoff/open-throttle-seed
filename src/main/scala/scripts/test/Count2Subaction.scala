@@ -12,7 +12,7 @@ class Count2Subaction extends Script {
 
   def chek() = {
     count += 1
-    val x = "x".tc
+    val x = "x".any
     log.info(s"chek $x: $count ${callIndex()}")
     empty
   }

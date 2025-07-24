@@ -25,7 +25,7 @@ class TryMaxTest extends Script {
 
   def check(name: String) = () => {
     if (name == "rom") {
-      val c = tc("counter").int
+      val c = "counter".int
       if (c < 2)
         throw new Exception("test")
     }

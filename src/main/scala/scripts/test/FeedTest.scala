@@ -20,7 +20,7 @@ class FeedTest extends Script {
 
 
   val check = () => {
-    subStr("user".tc.string)
+    subStr("user".tc[String])
     asserts
   }
 

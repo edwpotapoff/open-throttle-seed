@@ -20,13 +20,13 @@ class ForeachTest extends Script {
 
 
   val check = () => {
-    subStr("user".tc.string)
+    subStr("user".tc[String])
     asserts
   }
 
   val check2 = () => {
-    subStr("user".tc.string)
-    log.info(s"user ${tc("user")}, age ${tc("age")}")
+    subStr("user".tc[String])
+    log.info(s"user ${"user".any}, age ${"age".any}")
     asserts
   }
 

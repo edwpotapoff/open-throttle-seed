@@ -24,8 +24,8 @@ class CSVFeederLocal extends Script {
   }
 
   def check0() = {
-    val username = tc("username")
-    val city = "city".tc
+    val username = tc.any("username")
+    val city = "city".any
     log.info(s"username $username, city $city, id $hitId")
     empty
   }

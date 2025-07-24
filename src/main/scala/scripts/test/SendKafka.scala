@@ -35,7 +35,7 @@ class SendKafka extends Script {
   var id = 0
 
   def assertStep() = {
-    assert(tc("producer") == 1, s"Количество отправленных записей должно равняться 1")
+    assert(tc[Int]("producer") == 1, s"Количество отправленных записей должно равняться 1")
     empty
   }
 
