@@ -12,7 +12,7 @@ class ReadKafka extends Script {
   val req =
     KafkaReceive(
       "consumer:send-order-event"
-      , Map(timeout -> 10, connectTimeout -> "10 s")
+      , Map("timeout" -> 10, "connectTimeout" -> "10 s")
     ).make()
 
   //  Kafka(

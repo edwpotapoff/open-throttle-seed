@@ -10,7 +10,7 @@ object SendKafka extends ScriptObj {
 }
 
 class SendKafka extends Script {
-  val req = KafkaSend("producer:send-order-event", body = "Привет!", headers = Map(key -> "key", "h" -> "h1")).make()
+  val req = KafkaSend("producer:send-order-event", body = "Привет!", headers = Map("key" -> "key", "h" -> "h1")).make()
 
   //  val reqV2 = Kafka(
   //    Send(

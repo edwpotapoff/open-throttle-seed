@@ -10,7 +10,7 @@ object ScriptJdbc extends ScriptObj {
 }
 
 class ScriptJdbc extends Script {
-  val req = SqlSelect("dvdrental", Map(query -> "", timeout -> 600))
+  val req = SqlSelect("dvdrental", Map("query" -> "", "timeout" -> 600))
     .make()
     .copy(name = "SELECT * FROM public.film where film_id = $id")
 

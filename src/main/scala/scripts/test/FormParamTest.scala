@@ -9,7 +9,7 @@ import scala.language.postfixOps
 
 class FormParamTest extends Script {
 
-  val page = Http(s"lhp:/new", POST, body = "flightID=210297424-100296-JB&2=on")
+  val page = Http(s"lhp:/new", "POST", body = "flightID=210297424-100296-JB&2=on")
     .make()
 
   val load =

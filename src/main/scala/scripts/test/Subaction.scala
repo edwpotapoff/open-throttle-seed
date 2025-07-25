@@ -12,10 +12,10 @@ object Subaction extends ScriptObj {
 class Subaction extends Script {
   val req = Http(
     Endpoint("http://localhost:8080/users/rom",
-      Map("type" -> GET, Status -> 200, timeout -> 700)
+      Map("type" -> "GET", "status" -> 200, "timeout" -> 700)
     ),
     Message(null,
-      Map(Connection -> keepAlive))
+      Map("Connection" -> "keep-alive"))
   ).make()
 
 
