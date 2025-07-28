@@ -14,10 +14,9 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion,
       "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
-      "io.grpc" % "grpc-netty" % "1.71.0",
-      "io.grpc" % "grpc-core" % "1.71.0",
-      "io.grpc" % "grpc-stub" % "1.71.0",
-      "io.grpc" % "grpc-protobuf" % "1.71.0",
+      "io.grpc" % "grpc-core" % scalapb.compiler.Version.grpcJavaVersion, // было "1.71.0"
+      "io.grpc" % "grpc-stub" % scalapb.compiler.Version.grpcJavaVersion,
+      "io.grpc" % "grpc-protobuf" % scalapb.compiler.Version.grpcJavaVersion,
       "javax.annotation" % "javax.annotation-api" % "1.3.2"
     )
   )
