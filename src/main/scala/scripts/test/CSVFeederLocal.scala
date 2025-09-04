@@ -12,8 +12,8 @@ class CSVFeederLocal extends Script {
   var cities: LDS = _
 
   val initStep = () =>
-    users = "./parameters/Users".csv
-    cities = "./parameters/Cities".csv(false)
+    users = "./parameters/Users".csv(-1) // коэффициент распределения источников данных берется из сценария
+    cities = "./parameters/Cities".csv
     pass
 
 

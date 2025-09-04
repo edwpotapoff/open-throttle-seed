@@ -37,9 +37,7 @@ class RomAnnaScript extends Script {
 
   override val init = LoadSteps(fillRequests)
   val load = LoadSteps(
-    () =>
-      log.info(s"name = ${RomAnnaScript.name}")
-    , doRequest
+    doRequest
     , assertStep
   )
 }

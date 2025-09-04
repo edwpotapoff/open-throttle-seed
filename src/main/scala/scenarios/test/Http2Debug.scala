@@ -1,8 +1,8 @@
 package scenarios.test
 
+import io.ot.DebugScenario
 import io.ot.api.annotation.ShowScenario
-import io.ot.{DebugScenario, ScenarioObj}
-import scripts.test.{Http2Test, HttpTest, ScriptWs}
+import scripts.test.Http2Test
 
 import scala.concurrent.duration.DurationInt
 import scala.language.postfixOps
