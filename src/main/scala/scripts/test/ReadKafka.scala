@@ -34,7 +34,7 @@ class ReadKafka extends Script {
   var group = ""
 
   def initGroup() = {
-    group = s"group$testerNum"
+    group = s"group$testerId"
     log.info(s"group = $group")
     empty
   }

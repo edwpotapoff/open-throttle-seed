@@ -12,14 +12,14 @@ object ScriptWs extends ScriptObj {
 class ScriptWs extends Script {
   val load = Load(
     WsOpen("ws://localhost:8080/greeter", timeout = 1000), // ms
-    WsMessage("User${testerNum}", 500),
+    WsMessage("User${testerId}", 500),
     () => {
       log.info(tc.response.string)
-      tc("ar") = s"UseR$testerNum".getBytes
+      tc("ar") = s"UseR$testerId".getBytes
     },
     WsMessage("${ar}", 500),
     () => {
-      _assert(tc.response.string == "Hello UseR1!", s"response != UseR$testerNum", s"response == UseR$testerNum")
+      _assert(tc.response.string == "Hello UseR1!", s"response != UseR$testerId", s"response == UseR$testerId")
       asserts
     },
     WsClose

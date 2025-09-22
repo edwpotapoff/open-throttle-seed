@@ -9,8 +9,8 @@ import scala.concurrent.duration.DurationInt
 @ShowScenario
 class JdbcDebug extends DebugScenario {
   val script = ScriptJdbc
-  val testersNum = 101
-  val requestsNum = 100
+  val testersNum = 1
+  val requestsNum = 2
   val openThrottle = 0 seconds
   val runImmediately = false // after opening
   override val statTemplate = true

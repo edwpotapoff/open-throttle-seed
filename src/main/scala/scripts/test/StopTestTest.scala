@@ -35,7 +35,7 @@ class StopTestTest extends Script {
     Load(
       rom
       , () => {
-        if (state == RUN && testerNum == 1)
+        if (state == RUN && testerId == 1)
         //          stopTest("Тестовая остановка теста") // crash = false
           stopTest("Критическая ошибка", true) // crash = false
 

@@ -8,7 +8,7 @@ object TesterNum extends ScriptObj {
 
 class TesterNum extends Script {
   def check0() = {
-    log.info(s"testerNum $testerNum")
+    log.info(s"testerId $testerId")
     empty
   }
 
