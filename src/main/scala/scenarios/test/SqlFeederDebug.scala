@@ -7,8 +7,8 @@ import scala.concurrent.duration.DurationInt
 
 class SqlFeederDebug extends DebugScenario:
   val script = SqlFeeder
-  val testersNum = 100
-  val requestsNum = 10
+  val testersNum = 2
+  val requestsNum = 2
   val openThrottle = 100 millis
   val runImmediately = true // after opening
   override val statName = true

@@ -10,13 +10,15 @@ object SqlFeederLocal extends ScriptObj:
 class SqlFeederLocal extends Script:
   var film: LDS = _
 
-  override val init = Load(() =>
-    film = "dvdrental : SELECT * FROM public.film".sql // film_id, title, description
+  override val init = Load(
+    () =>
+      film = "dvdrental : SELECT * FROM public.film".sql // film_id, title, description
+      pass // будет ожидаться к открытию один источник данных
   )
 
   val load = Load(
     () =>
       film.next
-      pass
+      pass // будут ожидаться данные от источника
     , emptyFun // () => ()
   )

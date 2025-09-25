@@ -10,9 +10,9 @@ object SqlFeeder extends ScriptObj:
 class SqlFeeder extends Script:
   var film: FDS = _
 
-  def initStep0(): CO = 
+  def openDs(): CO = 
     film = "dvdrental : SELECT film_id, title, description FROM public.film".fsql("DataSource0", k = 1)
-    pass
+    pass // будет ожидаться к открытию один источник данных
 
   def setupStep(): CO = 
     film.rand // nextUnique
@@ -25,5 +25,5 @@ class SqlFeeder extends Script:
 
     log.info(s"film_id $film_id, title $title, description $description, hitId $hitId")
 
-  override val init = LoadSteps(initStep0)
+  override val init = LoadSteps(openDs)
   val load = LoadSteps(setupStep, check0)
