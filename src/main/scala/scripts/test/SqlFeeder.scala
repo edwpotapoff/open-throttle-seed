@@ -1,34 +1,29 @@
 package scripts.test
 
-import io.ot.{Script, ScriptObj, builder}
+import io.ot.builder.*
+import io.ot.*
 
-object SqlFeeder extends ScriptObj {
+object SqlFeeder extends ScriptObj:
   def apply() = new SqlFeeder
-}
 
-class SqlFeeder extends Script {
+
+class SqlFeeder extends Script:
   var film: FDS = _
 
-  def initStep0() = {
-    film = "dvdrental : SELECT film_id, title, description FROM public.film".fsql("DataSource0")
+  def initStep0(): CO = 
+    film = "dvdrental : SELECT film_id, title, description FROM public.film".fsql("DataSource0", k = 1)
     pass
-  }
 
-  def setupStep() = {
+  def setupStep(): CO = 
     film.rand // nextUnique
     pass
-  }
 
-  def check0() = {
+  def check0(): Unit = 
     val film_id = "film_id".any
     val title = "title".string
     val description = "description".string
 
     log.info(s"film_id $film_id, title $title, description $description, hitId $hitId")
-    empty
-  }
 
-  override val init = builder.LoadSteps(initStep0)
-  val load = builder.LoadSteps(setupStep, check0)
-
-}
+  override val init = LoadSteps(initStep0)
+  val load = LoadSteps(setupStep, check0)
