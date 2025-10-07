@@ -1,37 +1,22 @@
 package scripts.test
 
-import io.ot.builder.{Load, LoadSteps}
+import io.ot.builder.{FeedDs, Load}
 import io.ot.{Script, ScriptObj, builder}
 
-object CSVFeederLocal extends ScriptObj {
+object CSVFeederLocal extends ScriptObj:
   def apply() = new CSVFeederLocal
-}
-
-class CSVFeederLocal extends Script {
-  var users: LDS = _
-  var cities: LDS = _
-
-  val initStep = () =>
-    users = "./parameters/Users".csv(-1) // коэффициент распределения источников данных берется из сценария
-    cities = "./parameters/Cities".csv
-    pass
 
 
-  def setupStep() = {
-    users.next // nextUnique
-    cities.next // nextUnique
-    pass
-  }
-
-  def check0() = {
-    val username = tc.any("username")
-    val city = "city".any
+class CSVFeederLocal extends Script:
+  val check = () =>
+    val username = "username".string
+    val city = "city".string
     log.info(s"username $username, city $city, id $hitId")
-    empty
-  }
+  
 
-  override val init = Load(initStep)
+  val load = Load(
+      FeedDs("./parameters/Users", "csv")
+    , FeedDs("./parameters/Cities", "csv")
+    , check
+  )
 
-  val load = LoadSteps(setupStep, check0)
-
-}

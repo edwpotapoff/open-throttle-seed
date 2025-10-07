@@ -18,12 +18,15 @@ class SqlFeeder extends Script:
     film.rand // nextUnique
     pass
 
-  def check0(): Unit = 
+  val check = () => 
     val film_id = "film_id".any
     val title = "title".string
     val description = "description".string
 
     log.info(s"film_id $film_id, title $title, description $description, hitId $hitId")
 
-  override val init = LoadSteps(openDs)
-  val load = LoadSteps(setupStep, check0)
+//  override val init = LoadSteps(openDs)
+  val load = Load(
+    FeedDs("dvdrental : SELECT film_id, title, description FROM public.film", "sql", 1, "DataSource0", true) //setupStep
+    , check
+  )
