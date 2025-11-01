@@ -1,9 +1,8 @@
 package scripts.test
 
-import io.ot.builder.{Load, Sql}
-import io.ot.{Dict, Script, ScriptObj, builder}
+import io.ot.builder.*
+import io.ot.*
 
-import scala.collection.mutable.ArrayBuffer
 
 object ScriptJdbc extends ScriptObj:
   def apply() = new ScriptJdbc
@@ -12,12 +11,12 @@ object ScriptJdbc extends ScriptObj:
 class ScriptJdbc extends Script:
   var id = 0
   val setId = () =>
-    id = (id + 1)%1000
+    id = (id + 1) % 1000
     tc("id") = id
 
 
   val assertStep = () =>
-    val rs: ArrayBuffer[Dict[String, Any]] = tc("dvdrental")
+    val rs = "dvdrental".rs
     val h = rs.head
     assert(rs.size == 1, "Набор должен содержать только одну запись")
     assert(h("FILM_ID") == id, s"film_id должен равняться $id")
